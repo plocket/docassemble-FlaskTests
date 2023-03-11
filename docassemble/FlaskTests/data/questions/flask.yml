@@ -1,0 +1,55 @@
+---
+# Get the elements of the page and modify them
+features:
+  javascript: flask.js
+---
+question: Data
+fields:
+  - URL of the interview: url
+  - What tags do you want to run?: tags
+comment: |
+  Use get_variables?
+---
+mandatory: True
+question: Test flask
+---
+comment: |
+  https://docassemble.org/docs/objects.html#DARedis
+  https://github.com/joewalnes/websocketd
+  https://stackoverflow.com/questions/69735303/show-terminal-output-on-webpage-flask
+  https://stackoverflow.com/questions/13386681/streaming-data-with-python-and-flask
+  
+  Note: get template name a different way because usually there's only one
+  directory, but da is already using that. Only need it if using jinja templating.
+  Separation of content from code.
+  
+  Q: How to get files and folders?
+  
+  Flask is only for intermediate progress
+  
+  ======= INSTEAD =======
+  Fake endpoint with an event that js can poll. Same as regular endpoint. Event
+  returns some text or binary result. js - use url_action() to run an event with
+  some params. `GET`. https://docassemble.org/docs/functions.html#js_url_action
+  Character based, unfortunately. Somehow this has something to do with REDIS.
+---
+comment: |
+  Background process for just output
+  https://docassemble.org/docs/background.html (running code behind the scenes,
+  copy all and modify)
+  Dashboard might have some background stuff
+  https://github.com/SuffolkLITLab/docassemble-ALDashboard/blob/main/docassemble/ALDashboard/data/questions/install_packages.yml
+  Try `ls` or something (like the `echo` I got running)
+  https://docs.python.org/3/library/subprocess.html
+  Get files from the subprocess. How to show them? In bootstrap stuff Bryce did.
+    https://github.com/SuffolkLITLab/docassemble-ALDashboard/blob/2734f51b667e5e7c8e68ca0baf7b15cb99532dd6/docassemble/ALDashboard/data/questions/compile_bootstrap.yml#L55-L67
+    Point a da file (how?) to the file you create from the output.
+    Maybe parse the output to see where it's saved and then copy them
+    Images, text files, pdfs, docxs
+    Can't direct link
+    Get directory and file name (os.listdir?) (list files in directory)
+      https://www.geeksforgeeks.org/python-list-files-in-a-directory/ (look for better source)
+    DAFile method to copy it into the DAFile and serve it with...? How to get it
+    from js back into DA? Not using js for just a background process.
+    Can provide zip file MVP. Show files v2 or v3.
+  ...
